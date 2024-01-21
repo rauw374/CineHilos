@@ -23,11 +23,15 @@ public class Cliente {
 		this.columnaDeseada = columnaDeseada;
 		this.gestorDeReservas = gestorDeReservas;
 	}
-	/*
-	 * inicializamos el run 
-	 * 
-	 * 
-	 * */
+	
+	
+	public void run() {
+		synchronized (gestorDeReservas.getCine()) {
+			gestorDeReservas.reservar(this, filaDeseada, columnaDeseada);
+			//Notificamos que este hilo cliente ya ha terminado su acción
+			gestorDeReservas.getCine().notifyAll();
+		}
+	}
 
 	public String getNombre() {
 		return nombre;
