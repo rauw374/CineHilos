@@ -41,4 +41,47 @@ public class Cine {
         }
         return true;
     }
+    public void recaudacion(int pago) {
+    	this.recaudacionTotal += pago;
+    }
+    public void resetAsientos(int filas, int columnas) {
+    	for(int i=0;i < filas;i++) {
+    		for (int j = 0; j < columnas; j++) {
+				this.asientos[i][j].setOcupado(false);
+			}
+    	}
+    }
+
+	public Cine(Asiento[][] asientos, int recaudacionTotal, String cuentaCine) {
+		super();
+		this.asientos = asientos;
+		this.recaudacionTotal = recaudacionTotal;
+		this.cuentaCine = cuentaCine;
+	}
+
+	public Asiento[][] getAsientos() {
+		return asientos;
+	}
+
+	public void setAsientos(Asiento[][] asientos) {
+		this.asientos = asientos;
+	}
+
+	public int getRecaudacionTotal() {
+		return recaudacionTotal;
+	}
+
+	public void setRecaudacionTotal(int recaudacionTotal) {
+		this.recaudacionTotal = recaudacionTotal;
+	}
+
+	public String getCuentaCine() {
+		return cuentaCine;
+	}
+
+	public void setCuentaCine(String cuentaCine) {
+		this.cuentaCine = cuentaCine;
+	}
+    
+    
 }
